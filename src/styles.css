@@ -1,3 +1,126 @@
+h1,
+h2,
+p,
+.cities {
+  font-family: "Roboto Mono", monospace;
+}
+
 h1 {
   color: blue;
+  text-align: center;
+  font-size: 100px;
+  padding-top: 20px;
 }
+
+h2 {
+  color: blue;
+  font-size: 20px;
+  text-align: right;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  text-align: center;
+  margin: 0 200px;
+}
+
+.form {
+  padding-top: 100px;
+}
+
+.input {
+  border: 2px solid blue;
+  width: 100%;
+}
+
+.current-button {
+  border: 2px solid magenta;
+  background: magenta;
+  color: white;
+}
+
+.search-button {
+  background: blue;
+  color: white;
+  border: 2px solid blue;
+}
+
+.city-info {
+  padding-top: 100px;
+}
+
+li {
+  color: blue;
+  font-size: 15px;
+  text-align: left;
+}
+
+.date {
+  font-weight: bold;
+}
+
+.tempunits {
+  color: magenta;
+  font-size: 35px;
+  padding-left: 15px;
+  text-align: right;
+}
+
+.group-emojis {
+  text-align: center;
+  /* position: relative; */
+  bottom: 100px;
+}
+
+.sun {
+  position: relative;
+  font-size: 150px;
+  top: -130px;
+  right: 150px;
+}
+.starstruck {
+  position: relative;
+  font-size: 100px;
+  bottom: 170px;
+  left: 375px;
+}
+
+.magic {
+  position: relative;
+  font-size: 100px;
+  bottom: 180px;
+  left: 175px;
+}
+
+.hearteyes {
+  position: relative;
+  font-size: 75px;
+  bottom: 110px;
+  left: 110px;
+}
+
+/* .upcoming-days {
+  position: relative;
+  bottom: 100px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+} */
+
+/* .temp-day {
+  border-left: 2px solid blue;
+  border-right: 2px solid blue;
+  border-bottom: 2px solid blue;
+}
+
+.day {
+  border-bottom: 2px solid blue;
+  background-color: blue;
+}
+
+.temp-emoji {
+  font-size: 40px;
+} */
