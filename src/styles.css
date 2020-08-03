@@ -22,15 +22,14 @@ ul {
   padding-inline-start: 0px;
 }
 
-/* .weather-app {
+.weather-app {
+  border: solid 1px blue;
   max-width: 800px;
   margin: 0 auto;
-} */
+}
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  /* text-align: center;
-  margin: 0 200px; */
+  border: solid 1px magenta;
+  text-align: center;
 }
 
 .form {
@@ -75,6 +74,12 @@ li {
   text-align: right;
 }
 
+.units {
+  position: relative;
+  font-size: 16px;
+  top: -14px;
+}
+
 .group-emojis {
   text-align: center;
   /* position: relative; */
@@ -84,28 +89,28 @@ li {
 .sun {
   position: relative;
   font-size: 150px;
-  top: -130px;
-  right: 150px;
+  top: -155px;
+  right: 80px;
 }
 .starstruck {
   position: relative;
   font-size: 100px;
   bottom: 170px;
-  left: 375px;
+  left: 295px;
 }
 
 .magic {
   position: relative;
   font-size: 100px;
   bottom: 180px;
-  left: 175px;
+  left: 100px;
 }
 
 .hearteyes {
   position: relative;
   font-size: 75px;
   bottom: 110px;
-  left: 110px;
+  left: 50px;
 }
 
 /* .upcoming-days {
