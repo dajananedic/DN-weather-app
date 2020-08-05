@@ -1,5 +1,6 @@
 h1,
 h2,
+h3,
 p,
 .cities {
   font-family: "Roboto Mono", monospace;
@@ -17,18 +18,22 @@ h2 {
   text-align: right;
 }
 
+h3 {
+  color: blue;
+  font-size: 15px;
+  text-align: center;
+}
+
 ul {
   list-style-type: none;
   padding-inline-start: 0px;
 }
 
 .weather-app {
-  border: solid 1px blue;
   max-width: 600px;
   margin: 0 auto;
 }
 .container {
-  border: solid 1px magenta;
   text-align: center;
 }
 

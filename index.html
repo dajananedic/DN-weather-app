@@ -1,130 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link href="src/styles.css" rel="stylesheet" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-  <link href="src/styles.css" rel="stylesheet" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Dajana's Weather App</title>
+  </head>
 
-  <title>Dajana's Weather App</title>
-</head>
-
-<body>
-  <div class="container">
-    <h1>Dajana's Weather App</h1>
-    <div class="weather-app">
-      <form class="search-form" id="city-form">
-        <div class="row">
-          <!-- <div class="cities"></div> -->
-          <div class="col-6 form">
-            <input type="search" placeholder="Search cities..." autofocus="on" autocomplete="off" class="input"
-              id="city-input" />
-            <!-- <div class="input-group-prepend">
+  <body>
+    <div class="container">
+      <h1>Dajana's Weather App</h1>
+      <div class="weather-app">
+        <form class="search-form" id="city-form">
+          <div class="row">
+            <!-- <div class="cities"></div> -->
+            <div class="col-6 form">
+              <input
+                type="search"
+                placeholder="Search cities..."
+                autofocus="on"
+                autocomplete="off"
+                class="input"
+                id="city-input"
+              />
+              <!-- <div class="input-group-prepend">
                     <span class="input-group-text" id="addon-wrapping">🔍</span>
                     </div> -->
-          </div>
-          <div class="col-3 form">
-            <input type="submit" value="Search" class="search-button w-100">
-          </div>
+            </div>
+            <div class="col-3 form">
+              <input type="submit" value="Search" class="search-button w-100" />
+            </div>
 
-          <div class="col-3 form">
-            <button class="current-button w-100" id="current-location-button">Current
-            </button>
+            <div class="col-3 form">
+              <button class="current-button w-100" id="current-location-button">
+                Current
+              </button>
+            </div>
           </div>
+        </form>
 
+        <div class="row city-info">
+          <div class="col-6 current" id="degrees">
+            <h2 id="city">High Point, NC</h2>
+            <div class="tempunits">
+              <span class="temp" id="temperature"></span
+              ><span class="units">
+                <a href="#" id="celsius-link">°C</a> |
+                <a href="#" id="fahrenheit-link">°F</a></span
+              >
+            </div>
+          </div>
+          <div class="col-6 humidity-wind">
+            <ul>
+              <li class="date">
+                Last Updated: <span id="current-date"></span>
+              </li>
+              <li class="description" id="description"></li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span>km/h</li>
+            </ul>
+          </div>
         </div>
-      </form>
-
-
-      <div class="row city-info">
-        <div class="col-6 current" id="degrees">
-          <h2 id="city">High Point, NC</h2>
-          <div class="tempunits">
-            <span class="temp" id="temperature"></span><span class="units"> <a href="#" id="celsius-link">°C</a> | <a href="#" id="fahrenheit-link">°F</a></span>
-          </div>
-        </div>
-        <div class="col-6 humidity-wind">
-          <ul>
-            <li class="date"> Last Updated: <span id="current-date"></span></li>
-            <li class="description" id="description"></li>
-            <li>Humidity: <span id="humidity"></span>%</li>
-            <li>Wind: <span id="wind"></span>km/h</li>
-          </ul>
-        </div>
-
-      </div>
-      <div class="clearfix group-emojis">
-        <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear" id="icon" class="icon">
-        <!-- <span class="sun">🌞</span>
+        <div class="clearfix group-emojis">
+          <img
+            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+            alt="clear"
+            id="icon"
+            class="icon"
+          />
+          <!-- <span class="sun">🌞</span>
         <span class="starstruck">🤩</span>
         <span class="magic">✨</span>
         <span class="hearteyes">😍</span> -->
 
+          <div class="upcoming-days">
+            <div class="row" id="forecast">
+              <div class="col-2">
+                <h3>12:00</h3>
+                <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="">
+                <div class="weather-forecast-temperature">
+                  <strong>16</strong> 15°
+                </div>  
+              </div>
+
+              <!-- <div class="col-2">
+                <div class="temp-day">
+                  <p class="day">TUE</p>
+                  <span class="temp-emoji">🌤</span>
+                  <p class="temp">70°</p>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div class="temp-day">
+                  <p class="day">WED</p>
+                  <span class="temp-emoji">🌦</span>
+                  <p class="temp">70°</p>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div class="temp-day">
+                  <p class="day">THURS</p>
+                  <span class="temp-emoji">⛈</span>
+                  <p class="temp">65°</p>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div class="temp-day">
+                  <p class="day">FRI</p>
+                  <span class="temp-emoji">☀️</span>
+                  <p class="temp">70°</p>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div class="temp-day">
+                  <p class="day">SAT</p>
+                  <span class="temp-emoji">🌤</span>
+                  <p class="temp">75°</p>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-
+      <a href="https://github.com/dajananedic/DN-weather-app" target="_blank"
+        >Open-source </a
+      >by Dajana Nedić
+      <script src="src/index.js"></script>
     </div>
-
-    <!-- <div class="upcoming-days">
-        <div class="row">
-          <div class="col-2">
-            <div class="temp-day">
-              <p class="day">MON</p>
-              <span class="border-bottom"></span>
-              <span class="temp-emoji">☀️</span>
-              <p class="temp">72°</p>
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="temp-day">
-              <p class="day">TUE</p>
-              <span class="temp-emoji">🌤</span>
-              <p class="temp">70°</p>
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="temp-day">
-              <p class="day">WED</p>
-              <span class="temp-emoji">🌦</span>
-              <p class="temp">70°</p>
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="temp-day">
-              <p class="day">THURS</p>
-              <span class="temp-emoji">⛈</span>
-              <p class="temp">65°</p>
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="temp-day">
-              <p class="day">FRI</p>
-              <span class="temp-emoji">☀️</span>
-              <p class="temp">70°</p>
-            </div>
-          </div>
-
-          <div class="col-2">
-            <div class="temp-day">
-              <p class="day">SAT</p>
-              <span class="temp-emoji">🌤</span>
-              <p class="temp">75°</p>
-            </div>
-          </div>
-        </div> -->
-        <a href="https://github.com/dajananedic/DN-weather-app" target="_blank">Open-source </a>by Dajana Nedić
-        <script src="src/index.js"></script>
-  </div>
-  </div>
-</body>
-
+  </body>
 </html>
