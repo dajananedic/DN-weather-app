@@ -18,7 +18,8 @@ h2 {
   text-align: right;
 }
 
-h3 {
+h3,
+.weather-forecast-temperature {
   color: blue;
   font-size: 15px;
   text-align: center;
@@ -29,12 +30,20 @@ ul {
   padding-inline-start: 0px;
 }
 
+li {
+  color: blue;
+  font-size: 15px;
+  text-align: left;
+}
+
+li::first-letter {
+  text-transform: capitalize;
+}
+
 .weather-app {
   max-width: 600px;
   margin: 0 auto;
-}
-.container {
-  text-align: center;
+  padding-bottom: 100px;
 }
 
 .form {
@@ -62,12 +71,6 @@ ul {
   padding-top: 100px;
 }
 
-li {
-  color: blue;
-  font-size: 15px;
-  text-align: left;
-}
-
 .date {
   font-weight: bold;
 }
@@ -84,8 +87,15 @@ li {
   font-size: 16px;
   top: -14px;
 }
-li::first-letter {
-  text-transform: capitalize;
+
+.col-2 {
+  border-right: 1px solid magenta;
+  border-left: 1px solid magenta;
+}
+
+.col-2 img {
+  position: relative;
+  right: 15px;
 }
 
 .icon {
@@ -99,7 +109,10 @@ li::first-letter {
   bottom: 100px;
 }
 
-.sun {
+.small {
+  padding-top: 50px;
+}
+/* .sun {
   position: relative;
   font-size: 150px;
   top: -155px;
@@ -124,7 +137,7 @@ li::first-letter {
   font-size: 75px;
   bottom: 110px;
   left: 50px;
-}
+} */
 
 /* .upcoming-days {
   position: relative;
